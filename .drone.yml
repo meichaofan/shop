@@ -20,7 +20,7 @@ steps:
     image: plugins/docker
     commands:
       - docker login -u $USERNAME -p $PASSWORD
-      - docker build meichaofan/shop .
+      - docker build -t meichaofan/shop .
       - docker push meichaofan/shop
     environment:
       USERNAME:
@@ -30,18 +30,24 @@ steps:
 
   - name: deploy
     image: appleboy/drone-ssh
-    host:
-      from_secret: host_ip
-    username:
-      from_secret: host_username
-    port:
-      from_secret: host_port
-    secrets:
-      from_secret: ssh_key
+    host: $HOST
+    username: $USERNAME
+    port: $PORT
+    secrets: $RSA
     script:
       - cd /root/web/shop
       - docker-compose pull meichaofan/shop
       - docker-compose up
+    environment:
+      HOST:
+        from_secret: host_ip
+      USERNAME:
+        from_secret: host_username
+      PORT:
+        from_secret: host_port
+      RSA:
+        from_secret: ssh_key
+
 
 triger:
   branch:
