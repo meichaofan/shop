@@ -18,10 +18,11 @@ steps:
 
   - name: publish
     image: plugins/docker
-    commands:
-      - docker login -u $USERNAME -p $PASSWORD
-      - docker build -t meichaofan/shop .
-      - docker push meichaofan/shop
+    registry: https://index.docker.io/v1/
+    repo: meichaofan/shop
+    tags:
+      -lastest
+    secrets: [ $USERNAME, $PASSWORD ]
     environment:
       USERNAME:
         from_secret: docker_username
