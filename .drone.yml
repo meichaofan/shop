@@ -21,7 +21,7 @@ steps:
     registry: https://index.docker.io/v1/
     repo: meichaofan/shop
     tags:
-      -latest
+      - latest
     secrets: [ $USERNAME, $PASSWORD ]
     environment:
       USERNAME:
