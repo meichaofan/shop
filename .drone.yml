@@ -17,9 +17,10 @@ steps:
       GOPROXY: https://goproxy.io
 
   - name: publish
+    image: plugins/docker
     commands:
       - docker login -u $USERNAME -p $PASSWORD
-      - docker build -t meichaofan/shop .
+      - docker build meichaofan/shop .
       - docker push meichaofan/shop
     environment:
       USERNAME:
