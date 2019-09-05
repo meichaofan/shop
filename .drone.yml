@@ -19,8 +19,7 @@ steps:
   - name: publish
     image: plugins/docker
     registry: https://index.docker.io/v1/
-    repo: meichaofan/shop
-    tags: latest
+    repo: meichaofan/shop:latest
     secrets: [ $USERNAME, $PASSWORD ]
     environment:
       USERNAME:
