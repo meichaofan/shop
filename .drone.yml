@@ -18,6 +18,9 @@ steps:
 
   - name: publish
     image: plugins/docker
+    commands:
+      - echo "lalla"
+      - echo docker_username
     register: https://index.docker.io/v1/
     repo: meichaofan/shop
     secrets: [docker_username,docker_password]
