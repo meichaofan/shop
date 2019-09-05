@@ -1,0 +1,49 @@
+kind: pipeline
+name: shop
+
+workspace:
+  base: /root
+  path: web/shop/
+
+steps:
+  - name: build
+    image: golang
+    commands:
+      - pwd
+      - go env
+      - go version
+      - go build
+    environment:
+      GOPROXY: https://goproxy.io
+
+  - name: publish
+    image: plugins/docker
+    register: https://index.docker.io/v1/
+    repo: meichaofan/shop
+    secrets:
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
+    tags: lastest
+
+  - name: deploy
+    image: appleboy/drone-ssh
+    host:
+      from_secret: host_ip
+    username:
+      from_secret: host_username
+    port:
+      from_secret: host_port
+    secrets:
+      from_secret: ssh_key
+    script:
+      - cd /root/web/shop
+      - docker-compose pull meichaofan/shop
+      - docker-compose up
+
+triger:
+  branch:
+    - master
+  event:
+    - push

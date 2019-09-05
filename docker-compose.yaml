@@ -1,0 +1,7 @@
+version: '3.5'
+services:
+  shop:
+    image: meichaofan/shop
+    container_name: my_shop
+    ports:
+      - "8080:8080"
