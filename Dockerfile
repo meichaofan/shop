@@ -1,4 +1,4 @@
-FROM alpine:laster
+FROM alpine:latest
 
 COPY shop /
 
