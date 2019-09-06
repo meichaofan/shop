@@ -23,8 +23,6 @@ steps:
       - 'docker build -f Dockerfile -t meichaofan/shop:latest .'
       - 'docker push meichaofan/shop:latest'
     dockerfile: ./Dockerfile
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
     environment:
       USERNAME:
         from_secret: docker_username
