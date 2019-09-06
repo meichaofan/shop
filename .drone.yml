@@ -9,12 +9,15 @@ steps:
   - name: build
     image: golang
     commands:
+      - echo $username
       - pwd
       - go env
       - go version
       - go build
     environment:
       GOPROXY: https://goproxy.io
+      username:
+        from_secret: docker_username
 
   - name: publish
     image: plugins/docker
