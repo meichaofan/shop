@@ -14,7 +14,7 @@ steps:
       GOPROXY: https://goproxy.io
 
   - name: publish
-    image: plugins/docker:18
+    image: plugins/docker
     settings:
       registry: index.docker.io/v1/
       repo: meichaofan/shop
