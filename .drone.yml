@@ -34,7 +34,7 @@ steps:
         from_secret: ssh_username
       port:
         from_secret: ssh_port
-      key:
+      ssh-key:
         from_secret: ssh_key
     script:
       - cd /root/web/shop
