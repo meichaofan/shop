@@ -36,7 +36,7 @@ steps:
         from_secret: host_port
       ssh-key:
         from_secret: ssh_key
-    commands:
+    scripts:
       - cd /root/web/shop
       - docker-compose pull meichaofan/shop
       - docker-compose up
