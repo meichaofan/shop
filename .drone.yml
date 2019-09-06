@@ -36,10 +36,10 @@ steps:
         from_secret: ssh_password
       port:
         from_secret: ssh_port
-    script:
-      - cd /root/web/shop
-      - docker-compose pull meichaofan/shop
-      - docker-compose up -d
+      script:
+        - cd /root/web/shop
+        - docker-compose pull meichaofan/shop
+        - docker-compose up -d
 
 triger:
   branch:
