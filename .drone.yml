@@ -38,7 +38,7 @@ steps:
         from_secret: ssh_port
       script:
         - cd /root/web/shop
-        - docker-compose pull meichaofan/shop
+        - docker-compose pull shop
         - docker-compose up -d
 
 triger:
