@@ -6,7 +6,7 @@ func main() {
 	r := gin.Default()
 	r.GET("/version", func(c *gin.Context) {
 		c.JSON(200, gin.H{
-			"message": "v3",
+			"message": "v4",
 		})
 	})
 	r.Run()
