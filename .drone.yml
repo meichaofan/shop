@@ -9,26 +9,21 @@ steps:
   - name: build
     image: golang
     commands:
-      - echo $username
       - pwd
       - go env
       - go version
       - go build
     environment:
       GOPROXY: https://goproxy.io
-      username:
-        from_secret: docker_username
 
   - name: publish
     image: plugins/docker
-    environment:
-      registry: https://index.docker.io/v1/
-      repo: meichaofan/shop
-      username:
-        from_secret: docker_username
-      password:
-        from_secret: docker_password
-      tags: latest
+    registry: https://index.docker.io/v1/
+    repo: meichaofan/shop
+    username: meichaofan
+    password: huanhuan0921
+    tags: latest
+
 
   - name: deploy
     image: appleboy/drone-ssh
