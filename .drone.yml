@@ -30,9 +30,9 @@ steps:
     settings:
       host:
         from_secret: ssh_host
-      ssh_username:
+      username:
         from_secret: ssh_username
-      ssh_password:
+      password:
         from_secret: ssh_password
       port:
         from_secret: ssh_port
