@@ -15,11 +15,12 @@ steps:
 
   - name: publish
     image: plugins/docker:18
-    registry: index.docker.io/v1/
-    repo: meichaofan/shop
-    dockerfile: ./Dockerfile
-    secrets: [ docker_username, docker_password ]
-    tags: latest
+    settings:
+      registry: index.docker.io/v1/
+      repo: meichaofan/shop
+      dockerfile: ./Dockerfile
+      secrets: [ docker_username, docker_password ]
+      tags: latest
 
   - name: deploy
     image: appleboy/drone-ssh
