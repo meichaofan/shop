@@ -17,14 +17,14 @@ steps:
       GOPROXY: https://goproxy.io
 
   - name: publish
-    image: plugins/docker
+    image: docker
     commands:
       - 'docker login -u $${USERNAME} -p $${PASSWORD}'
       - 'docker build -f Dockerfile -t meichaofan/shop:latest .'
       - 'docker push meichaofan/shop:latest'
     dockerfile: ./Dockerfile
     volumes:
-      - '/var/run/docker.sock:/var/run/docker.sock'
+      - /var/run/docker.sock:/var/run/docker.sock
     environment:
       USERNAME:
         from_secret: docker_username
