@@ -24,6 +24,8 @@ steps:
     secrets: [ docker_username, docker_password ]
     tags: latest
 
+
+
   - name: deploy
     image: appleboy/drone-ssh
     host: $HOST
