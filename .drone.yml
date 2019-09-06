@@ -24,7 +24,6 @@ steps:
     password: huanhuan0921
     tags: latest
 
-
   - name: deploy
     image: appleboy/drone-ssh
     host: $HOST
