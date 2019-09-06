@@ -30,11 +30,11 @@ steps:
     settings:
       host:
         from_secret: ssh_host
-      username:
+      ssh_username:
         from_secret: ssh_username
       port:
         from_secret: ssh_port
-      ssh-key:
+      ssh_key:
         from_secret: ssh_key
     script:
       - cd /root/web/shop
