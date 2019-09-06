@@ -34,12 +34,12 @@ steps:
         from_secret: host_username
       port:
         from_secret: host_port
-      ssh-key:
+      key:
         from_secret: ssh_key
-    scripts:
+    script:
       - cd /root/web/shop
       - docker-compose pull meichaofan/shop
-      - docker-compose up
+      - docker-compose up -d
 
 triger:
   branch:
