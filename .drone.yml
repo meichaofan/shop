@@ -29,11 +29,11 @@ steps:
     image: appleboy/drone-ssh
     settings:
       host:
-        from_secret: host_ip
+        from_secret: ssh_host
       username:
-        from_secret: host_username
+        from_secret: ssh_username
       port:
-        from_secret: host_port
+        from_secret: ssh_port
       key:
         from_secret: ssh_key
     script:
