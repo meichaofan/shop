@@ -1,0 +1,56 @@
+{
+  "pipeline": [
+    {
+      "name": "pipeline_clone",
+      "alias": "clone",
+      "steps": [
+        {
+          "name": "pipeline_clone",
+          "alias": "clone",
+          "image": "plugins/git:latest",
+          "working_dir": "/root/web/shop",
+          "environment": {
+            "CI": "drone",
+            "CI_SYSTEM": "pipec",
+            "CI_SYSTEM_ARCH": "linux/amd64",
+            "CI_SYSTEM_LINK": "https://github.com/cncd/pipec",
+            "CI_SYSTEM_NAME": "pipec",
+            "CI_WORKSPACE": "/root/web/shop",
+            "DRONE": "true",
+            "DRONE_ARCH": "linux/amd64",
+            "DRONE_BUILD_LINK": "https://github.com/cncd/pipec//0",
+            "DRONE_REPO_SCM": "git",
+            "DRONE_WORKSPACE": "/root/web/shop",
+            "PLUGIN_DEPTH": "0"
+          },
+          "volumes": [
+            "pipeline_default:/root"
+          ],
+          "networks": [
+            {
+              "name": "pipeline_default",
+              "aliases": [
+                "clone"
+              ]
+            }
+          ],
+          "on_success": true,
+          "auth_config": {}
+        }
+      ]
+    }
+  ],
+  "networks": [
+    {
+      "name": "pipeline_default",
+      "driver": "bridge"
+    }
+  ],
+  "volumes": [
+    {
+      "name": "pipeline_default",
+      "driver": "local"
+    }
+  ],
+  "secrets": null
+}
